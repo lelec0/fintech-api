@@ -1,70 +1,70 @@
-# 💰 Personal Finance API - Sistema FinTech
+# Personal Finance API - Sistema FinTech
 
 Aplicação completa de gestão financeira pessoal desenvolvida em Java com Spring Boot (Backend) e Angular (Frontend - planejado). Este projeto demonstra conhecimentos em desenvolvimento full-stack, arquitetura de APIs REST, testes automatizados e boas práticas de desenvolvimento.
 
-## 🎯 Objetivo do Projeto
+## Objetivo do Projeto
 
 Desenvolver uma aplicação completa de gestão financeira pessoal que permita aos usuários:
-- ✅ Gerenciar contas bancárias
-- ✅ Realizar transações (depósitos, saques, transferências, pagamentos)
-- ✅ Consultar histórico de transações
-- ✅ Visualizar saldos e extratos
-- 🔄 Frontend em Angular (planejado)
+- Gerenciar contas bancárias
+- Realizar transações (depósitos, saques, transferências, pagamentos)
+- Consultar histórico de transações
+- Visualizar saldos e extratos
+- Frontend em Angular (planejado)
 
-## 🚀 Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 ### Backend
-- **Java 17** - Linguagem de programação
-- **Spring Boot 3.2.0** - Framework para desenvolvimento
-- **Spring Data JPA** - Persistência de dados
-- **H2 Database** - Banco de dados em memória (desenvolvimento) ✅
-- **PostgreSQL** - Banco de dados relacional (produção - se der tempo)
-- **Lombok** - Redução de boilerplate
-- **SpringDoc OpenAPI** - Documentação da API (Swagger) ✅
-- **Maven** - Gerenciamento de dependências
-- **JUnit 5** - Testes automatizados ✅
-- **Docker** - Containerização (planejado)
+- Java 17 - Linguagem de programação
+- Spring Boot 3.2.0 - Framework para desenvolvimento
+- Spring Data JPA - Persistência de dados
+- H2 Database - Banco de dados em memória (desenvolvimento)
+- PostgreSQL - Banco de dados relacional (produção - se der tempo)
+- Lombok - Redução de boilerplate
+- SpringDoc OpenAPI - Documentação da API (Swagger)
+- Maven - Gerenciamento de dependências
+- JUnit 5 - Testes automatizados
+- Docker - Containerização (planejado)
 
 ### Frontend (Planejado)
-- **Angular** - Framework frontend
-- **TypeScript** - Linguagem
-- **RxJS** - Programação reativa
+- Angular - Framework frontend
+- TypeScript - Linguagem
+- RxJS - Programação reativa
 
-## ✅ Funcionalidades Implementadas
-
-### Backend
-- ✅ CRUD completo de Usuários
-- ✅ CRUD completo de Contas Bancárias
-- ✅ CRUD completo de Transações
-- ✅ Gestão de Transações (Depósito, Saque, Transferência, Pagamento)
-- ✅ Consulta de Extratos por conta
-- ✅ Validação de Saldo (impede saque/transferência sem saldo)
-- ✅ Validação de sintaxe de email
-- ✅ Testes de Integração (User, Account, Transaction)
-- ✅ Dados fake para facilitar testes
-- ✅ Documentação da API com Swagger
-- ✅ Arquitetura em camadas (Controller → Service → Repository → Model)
-- ✅ DTOs para transferência de dados
-- ✅ Configuração H2 para desenvolvimento
-
-### Frontend
-- 🔄 Planejado: Interface Angular para consumir a API
-
-## 📋 Roadmap - Pendências
+## Funcionalidades Implementadas
 
 ### Backend
-- [ ] Tratamento global de exceções (@ControllerAdvice)
-- [ ] Validações adicionais (CPF, etc)
-- [ ] Docker e docker-compose
-- [ ] Configuração PostgreSQL (se der tempo)
+- CRUD completo de Usuários
+- CRUD completo de Contas Bancárias
+- CRUD completo de Transações
+- Gestão de Transações (Depósito, Saque, Transferência, Pagamento)
+- Consulta de Extratos por conta
+- Validação de Saldo (impede saque/transferência sem saldo)
+- Validação de sintaxe de email
+- Testes de Integração (User, Account, Transaction)
+- Dados fake para facilitar testes
+- Documentação da API com Swagger
+- Arquitetura em camadas (Controller → Service → Repository → Model)
+- DTOs para transferência de dados
+- Configuração H2 para desenvolvimento
 
 ### Frontend
-- [ ] Estrutura inicial do projeto Angular
-- [ ] Componentes de listagem (usuários, contas, transações)
-- [ ] Formulários de criação/edição
-- [ ] Integração com API backend
+- Planejado: Interface Angular para consumir a API
 
-## 🏗️ Estrutura do Projeto
+## Roadmap - Pendências
+
+### Backend
+- Tratamento global de exceções (@ControllerAdvice)
+- Validações adicionais (CPF, etc)
+- Docker e docker-compose
+- Configuração PostgreSQL (se der tempo)
+
+### Frontend
+- Estrutura inicial do projeto Angular
+- Componentes de listagem (usuários, contas, transações)
+- Formulários de criação/edição
+- Integração com API backend
+
+## Estrutura do Projeto
 
 ```
 fintech-api/
@@ -87,7 +87,7 @@ fintech-api/
 └── README.md
 ```
 
-## 📦 Modelo de Dados
+## Modelo de Dados
 
 ### User (Usuário)
 - ID, Nome, Email, CPF
@@ -104,7 +104,7 @@ fintech-api/
 - Relacionamento N:1 com Account
 - Atualiza saldo automaticamente baseado no tipo
 
-## 🔧 Como Executar
+## Como Executar
 
 ### Pré-requisitos
 - Java 17 ou superior
@@ -124,9 +124,9 @@ cd fintech-api/backend
 mvn spring-boot:run
 ```
 
-A aplicação iniciará em: **http://localhost:8080**
+A aplicação iniciará em: http://localhost:8080
 
-**Nota:** A aplicação usa H2 (banco em memória) por padrão. Dados fake são inseridos automaticamente ao iniciar.
+Nota: A aplicação usa H2 (banco em memória) por padrão. Dados fake são inseridos automaticamente ao iniciar.
 
 3. Acesse a documentação da API:
 - Swagger UI: http://localhost:8080/swagger-ui.html
@@ -145,7 +145,7 @@ mvn test
 docker-compose up -d
 ```
 
-## 📚 Endpoints da API
+## Endpoints da API
 
 ### Usuários
 - `GET /api/users` - Listar todos os usuários
@@ -169,52 +169,52 @@ docker-compose up -d
 - `POST /api/transactions` - Criar nova transação (atualiza saldo automaticamente)
 - `DELETE /api/transactions/{id}` - Deletar transação
 
-## 🧪 Testes
+## Testes
 
 O projeto possui testes de integração que testam fluxos completos:
 
-- **UserControllerIntegrationTest** - Testa CRUD completo de usuários
-- **AccountControllerIntegrationTest** - Testa CRUD completo de contas
-- **TransactionControllerIntegrationTest** - Testa criação de transações e extratos
+- UserControllerIntegrationTest - Testa CRUD completo de usuários
+- AccountControllerIntegrationTest - Testa CRUD completo de contas
+- TransactionControllerIntegrationTest - Testa criação de transações e extratos
 
 ```bash
 cd backend
 mvn test
 ```
 
-## 🎨 Dados Fake
+## Dados Fake
 
 Ao iniciar a aplicação, dados fake são inseridos automaticamente para facilitar testes:
 
-- **2 Usuários:** João Silva e Maria Santos
-- **3 Contas:** Contas com saldos iniciais
-- **3 Transações:** Histórico de movimentações
+- 2 Usuários: João Silva e Maria Santos
+- 3 Contas: Contas com saldos iniciais
+- 3 Transações: Histórico de movimentações
 
-Você pode testar os endpoints imediatamente sem precisar criar dados manualmente!
+Você pode testar os endpoints imediatamente sem precisar criar dados manualmente.
 
-## 📝 Próximos Passos
+## Próximos Passos
 
 ### Backend
-- [ ] Implementar tratamento global de exceções
-- [ ] Adicionar validações adicionais (CPF, etc)
-- [ ] Configurar Docker e docker-compose
-- [ ] Configurar PostgreSQL para produção (se der tempo)
+- Implementar tratamento global de exceções
+- Adicionar validações adicionais (CPF, etc)
+- Configurar Docker e docker-compose
+- Configurar PostgreSQL para produção (se der tempo)
 
 ### Frontend
-- [ ] Criar projeto Angular
-- [ ] Implementar componentes de listagem
-- [ ] Implementar formulários
-- [ ] Integrar com API backend
+- Criar projeto Angular
+- Implementar componentes de listagem
+- Implementar formulários
+- Integrar com API backend
 
-## 🤝 Contribuindo
+## Contribuindo
 
-Este é um projeto pessoal para demonstração de habilidades. Sinta-se à vontade para sugerir melhorias!
+Este é um projeto pessoal para demonstração de habilidades. Sinta-se à vontade para sugerir melhorias.
 
-## 📄 Licença
+## Licença
 
 Este projeto é de código aberto e está disponível sob a licença MIT.
 
-## 👨‍💻 Autor
+## Autor
 
 Desenvolvido como projeto de portfólio para demonstrar conhecimentos em:
 - Java e Spring Boot
@@ -228,4 +228,4 @@ Desenvolvido como projeto de portfólio para demonstrar conhecimentos em:
 
 ---
 
-**Status do Projeto:** ✅ Backend Funcional | 🔄 Frontend Planejado
+Status do Projeto: Backend Funcional | Frontend Planejado
