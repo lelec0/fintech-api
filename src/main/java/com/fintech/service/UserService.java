@@ -17,6 +17,29 @@ public class UserService {
 
     private final UserRepository userRepository;
 
+    private void validateEmail(String email) {
+        if (email == null || email.trim().isEmpty()) {
+            throw new RuntimeException("Email não pode ser vazio");
+        }
+        
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+        Pattern pattern = Pattern.compile(emailRegex);
+        
+        if (!pattern.matcher(email).matches()) {
+            throw new RuntimeException("Email inválido. Formato esperado: exemplo@dominio.com");
+        }
+    }
+
+    private UserDTO toDTO(User user) {
+        return new UserDTO(
+                user.getId(),
+                user.getName(),
+                user.getEmail(),
+                user.getCpf(),
+                user.getCreatedAt()
+        );
+    }
+
     @Transactional(readOnly = true)
     public List<UserDTO> findAll() {
         return userRepository.findAll().stream()
@@ -75,28 +98,5 @@ public class UserService {
             throw new RuntimeException("Usuário não encontrado com ID: " + id);
         }
         userRepository.deleteById(id);
-    }
-
-    private void validateEmail(String email) {
-        if (email == null || email.trim().isEmpty()) {
-            throw new RuntimeException("Email não pode ser vazio");
-        }
-        
-        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
-        Pattern pattern = Pattern.compile(emailRegex);
-        
-        if (!pattern.matcher(email).matches()) {
-            throw new RuntimeException("Email inválido. Formato esperado: exemplo@dominio.com");
-        }
-    }
-
-    private UserDTO toDTO(User user) {
-        return new UserDTO(
-                user.getId(),
-                user.getName(),
-                user.getEmail(),
-                user.getCpf(),
-                user.getCreatedAt()
-        );
     }
 }
