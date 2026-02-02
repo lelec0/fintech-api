@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 @Service
@@ -32,6 +33,8 @@ public class UserService {
 
     @Transactional
     public UserDTO create(UserDTO userDTO) {
+        validateEmail(userDTO.getEmail());
+        
         if (userRepository.existsByEmail(userDTO.getEmail())) {
             throw new RuntimeException("Email já cadastrado: " + userDTO.getEmail());
         }
@@ -72,6 +75,19 @@ public class UserService {
             throw new RuntimeException("Usuário não encontrado com ID: " + id);
         }
         userRepository.deleteById(id);
+    }
+
+    private void validateEmail(String email) {
+        if (email == null || email.trim().isEmpty()) {
+            throw new RuntimeException("Email não pode ser vazio");
+        }
+        
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+        Pattern pattern = Pattern.compile(emailRegex);
+        
+        if (!pattern.matcher(email).matches()) {
+            throw new RuntimeException("Email inválido. Formato esperado: exemplo@dominio.com");
+        }
     }
 
     private UserDTO toDTO(User user) {
